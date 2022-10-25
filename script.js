@@ -9,7 +9,7 @@ const songs = [
     "The Wind and The Wave - Chasing Cars (Live).mp3"
     ];
 
-    function createSongList() {
+function createSongList() {
         const list = document.createElement ("ol");
         for(let i=0; i < songs.length; i++) {
          const item = document.createElement('li');
@@ -19,4 +19,14 @@ const songs = [
         return list
      }
 
-     document.getElementById("songList").appendChild(createSongList())
+const songList = document.getElementById("songList");
+songList.appendChild(createSongList());
+
+songList.onclick = function (e) {
+const source = document.getElementById('source');
+    source.src = "songs/"+e.target.innerText;
+
+const player = document.getElementById("player")
+    player.load();
+    player.play();
+};
