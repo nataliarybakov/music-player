@@ -32,3 +32,13 @@ const player = document.getElementById("player")
     player.load();
     player.play();
 };
+
+function playAudio() {
+    if(player.readyState) {
+        player.play();
+    }
+    }
+    
+    function pauseAudio() {
+        player.pause();
+    }
