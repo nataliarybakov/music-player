@@ -22,7 +22,14 @@ function createSongList() {
 const songList = document.getElementById("songList");
 songList.appendChild(createSongList());
 
-songList.onclick = function (e) {
+const links = document.querySelectorAll('li');
+for(const link of links) {
+    link.addEventListener('click', setSong);
+}
+
+function setSong(e) {
+    document.querySelector("#headphones").classList.remove("pulse");
+
 const source = document.getElementById('source');
     source.src = "songs/" + e.target.innerText;
 
@@ -31,6 +38,7 @@ const source = document.getElementById('source');
 const player = document.getElementById("player")
     player.load();
     player.play();
+    document.querySelector("#headphones").classList.add("pulse");
 };
 
 function playAudio() {
